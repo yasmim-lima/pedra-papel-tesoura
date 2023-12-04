@@ -16,16 +16,21 @@ function umaRodada (escolhaJogador, escolhaComputador) {
             return "Voce ganhou! Papel vence pedra!";
         } else if (escolhaJogador == "papel" && escolhaComputador == "tesoura"){
             return "Voce perdeu! Tesoura vence papel!";
+        } else if (escolhaJogador === escolhaComputador) {
+            return "Houve um empate! Jogue novamente";
         } else {
-            return "Houve um empate! Jogue novamente"
+            return "Escolha inválida";
         }
+}
+
+function jogo() {
+    for (let i = 0; i < 5; i++){
+        const palavraJogador = prompt("Pedra, papel ou tesoura?").toLowerCase();
+        const palavraComputador = palavraAleatoria(palavras);
+        alert(umaRodada(palavraJogador, palavraComputador));
+    }
 }
 
 
 let palavras = ["pedra", "papel", "tesoura"];
-let palavraComputador = palavraAleatoria(palavras);
-let palavraJogador = "pedra";
-palavraJogador = palavraJogador.toLowerCase();
-console.log("Sua escolha: " + palavraJogador);
-console.log("Escolha do computador: " + palavraComputador);
-console.log(umaRodada(palavraJogador, palavraComputador));
+jogo ();
